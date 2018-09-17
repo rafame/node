@@ -40,3 +40,11 @@ app.get('/calculadora/resta/:num1/:num2', (req, res, next) => {
         metodo: 'params'
     })
 })
+app.get('/calculadora/multi/:num1/:num2', (req, res, next) => {
+    var resultado = Number(req.params.num1) * Number(req.params.num2);
+    res.status(200).json({
+        ok: true,
+        resultado: resultado,
+        metodo: 'params'
+    })
+})
