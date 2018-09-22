@@ -1,11 +1,19 @@
 // Requires
 let express = require('express');
+var mongoose = require('mongoose');
 
 //Iniciar letiables
 let app = express();
 let port = 3000;
 
+// bbdd
+mongoose.connection.openUri('mongodb://localhost:27017/parking', (error, response)=> {
+    if(error)throw error;
+    console.log(`BBDD ${verde()} `, `online: 27017`);
+});
+
 //Escuchar peticiones
+
 app.listen(port, () => {
     console.log(`Express server puerto ${port} ${verde()}`, `online`);
 })
